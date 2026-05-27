@@ -40,7 +40,7 @@ export function createGPUContainer(gpu, coreClock, memClock) {
 function createGraphicsCardTable(gpu) {
     const table = document.createElement("table");
 
-    const header = createTableHeader("GRAPHICS CARD");
+    const header = createTableHeader("SPECIFICATIONS");
     const body = document.createElement("tbody");
     body.innerHTML = `
         <tr><th>Cores:</td><td>${gpu.getCores()}</td></tr>
