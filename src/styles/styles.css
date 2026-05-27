@@ -23,7 +23,7 @@ body {
     background-color: rgba(20, 20, 20, 0.75);
     border-radius: 1rem;
     margin: 1rem auto;
-    padding: 2rem;
+    
 }
 
 .main-page-title {
@@ -37,11 +37,14 @@ body {
 }
 
 .menu {
+    display: flex;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.9);
-    margin: 1rem auto;
     padding: 1rem;
-    
+    box-sizing: border-box;
 }
 
 button {
@@ -70,8 +73,7 @@ input {
 .gpu-container {
     max-width: 1100px;
     min-width: 600px;
-    margin: 0 auto 30px auto; /* Center the container horizontally */
-    padding: 10px;
+    margin: 2rem 1.5rem;
     border: 1px solid grey;
     border-radius: 15px;
     background-color: rgba(11, 11, 11, 0.5);
@@ -149,10 +151,7 @@ th {
     font-weight: bold;
 }
 
-.gpu-compare-header,
-.gpu-compare-amd,
-.gpu-compare-intel,
-.gpu-compare-nvidia {
+.gpu-compare-header {
     background-color: rgba(5, 5, 5, 0.5);
     background-color: #050505;
     font-size: 26px;
@@ -219,6 +218,10 @@ th {
         padding: 0;
     }
 
+    .menu {
+        overflow: auto;
+    }
+
     .gpu-container {
         min-width: 200px;
         max-width: 500px;
@@ -249,5 +252,7 @@ th {
         margin-bottom: 1rem;
     }
 
-
+    button {
+        height: 75px;
+    }
 }

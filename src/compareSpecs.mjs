@@ -44,8 +44,6 @@ export function createCompareSpecsContainer(firstGPU, secondGPU) {
         firstGPU.getLine().toLowerCase().trim() === "arc"
     ) {
         firstGpuModelHeaderClass = "gpu-compare-intel";
-    } else {
-        firstGpuModelHeaderClass = "gpu-compare-header";
     }
 
     // Sets the font color to the name header of the GPU in the right side of the comparison
@@ -65,8 +63,6 @@ export function createCompareSpecsContainer(firstGPU, secondGPU) {
         secondGPU.getLine().toLowerCase().trim() === "arc"
     ) {
         secondGpuModelHeaderClass = "gpu-compare-intel";
-    } else {
-        secondGpuModelHeaderClass = "gpu-compare-header";
     }
 
     const compareSpecsTable = document.createElement("table");
@@ -83,9 +79,11 @@ export function createCompareSpecsContainer(firstGPU, secondGPU) {
     const firstModel = document.createElement("td");
     firstModel.textContent = firstGPU.getModel();
     firstModel.classList.add(firstGpuModelHeaderClass);
+    firstModel.classList.add("gpu-compare-header");
     const secondModel = document.createElement("td");
     secondModel.textContent = secondGPU.getModel();
     secondModel.classList.add(secondGpuModelHeaderClass);
+    secondModel.classList.add("gpu-compare-header");
     const percentageDifferenceHeader = document.createElement("td");
     percentageDifferenceHeader.textContent = "Difference (in %)";
     percentageDifferenceHeader.className = "compare-specs-table-difference-column";
@@ -96,15 +94,17 @@ export function createCompareSpecsContainer(firstGPU, secondGPU) {
     compareSpecsMainRow.appendChild(percentageDifferenceHeader);
     compareSpecsTable.appendChild(compareSpecsMainRow);
 
-    // The graphics card specifications first division of the table
-    createTableDivisionHeader(compareSpecsTable, "GRAPHICS CARD");
+    // First table section
+    createTableDivisionHeader(compareSpecsTable, "SPECIFICATIONS");
 
     // Cores row
     createTableRow(compareSpecsTable,
         "Cores",
         firstGPU.getCores(),
         secondGPU.getCores(),
-        getPercentageDifference(firstGPU.getCores(), secondGPU.getCores())
+        getPercentageDifference(firstGPU.getCores(), secondGPU.getCores()),
+        firstGpuModelHeaderClass,
+        secondGpuModelHeaderClass
     );
 
     // TMUs row
@@ -112,7 +112,9 @@ export function createCompareSpecsContainer(firstGPU, secondGPU) {
         "TMUs",
         firstGPU.getTmus(),
         secondGPU.getTmus(),
-        getPercentageDifference(firstGPU.getTmus(), secondGPU.getTmus())
+        getPercentageDifference(firstGPU.getTmus(), secondGPU.getTmus()),
+        firstGpuModelHeaderClass,
+        secondGpuModelHeaderClass
     );
 
     // ROPs row
@@ -120,7 +122,9 @@ export function createCompareSpecsContainer(firstGPU, secondGPU) {
         "ROPs",
         firstGPU.getRops(),
         secondGPU.getRops(),
-        getPercentageDifference(firstGPU.getRops(), secondGPU.getRops())
+        getPercentageDifference(firstGPU.getRops(), secondGPU.getRops()),
+        firstGpuModelHeaderClass,
+        secondGpuModelHeaderClass
     );
 
     // VRAM row
@@ -128,7 +132,9 @@ export function createCompareSpecsContainer(firstGPU, secondGPU) {
         "VRAM",
         firstGPU.getVram(),
         secondGPU.getVram(),
-        getPercentageDifference(firstGPU.getVram(), secondGPU.getVram())
+        getPercentageDifference(firstGPU.getVram(), secondGPU.getVram()),
+        firstGpuModelHeaderClass,
+        secondGpuModelHeaderClass
     );
 
     // Bus Width row
@@ -136,10 +142,12 @@ export function createCompareSpecsContainer(firstGPU, secondGPU) {
         "Bus Width",
         firstGPU.getBus(),
         secondGPU.getBus(),
-        getPercentageDifference(firstGPU.getBus(), secondGPU.getBus())
+        getPercentageDifference(firstGPU.getBus(), secondGPU.getBus()),
+        firstGpuModelHeaderClass,
+        secondGpuModelHeaderClass
     );
 
-    // The clock speeds division of the table
+    // Second table section
     createTableDivisionHeader(compareSpecsTable, "CLOCK SPEEDS");
 
     // Base Clock row
@@ -147,7 +155,9 @@ export function createCompareSpecsContainer(firstGPU, secondGPU) {
         "Base Clock",
         firstGPU.getBaseClock(),
         secondGPU.getBaseClock(),
-        getPercentageDifference(firstGPU.getBaseClock(), secondGPU.getBaseClock())
+        getPercentageDifference(firstGPU.getBaseClock(), secondGPU.getBaseClock()),
+        firstGpuModelHeaderClass,
+        secondGpuModelHeaderClass
     );
 
     // Boost Clock row
@@ -155,7 +165,9 @@ export function createCompareSpecsContainer(firstGPU, secondGPU) {
         "Boost Clock",
         firstGPU.getBoostClock(),
         secondGPU.getBoostClock(),
-        getPercentageDifference(firstGPU.getBoostClock(), secondGPU.getBoostClock())
+        getPercentageDifference(firstGPU.getBoostClock(), secondGPU.getBoostClock()),
+        firstGpuModelHeaderClass,
+        secondGpuModelHeaderClass
     );
 
     // Memory Clock row
@@ -163,10 +175,12 @@ export function createCompareSpecsContainer(firstGPU, secondGPU) {
         "Memory Clock",
         firstGPU.getMemClock(),
         secondGPU.getMemClock(),
-        getPercentageDifference(firstGPU.getMemClock(), secondGPU.getMemClock())
+        getPercentageDifference(firstGPU.getMemClock(), secondGPU.getMemClock()),
+        firstGpuModelHeaderClass,
+        secondGpuModelHeaderClass
     );
 
-    // The theoretical performance division of the table
+    // Third table section
     createTableDivisionHeader(compareSpecsTable, "THEORETICAL PERFORMANCE");
 
     // FP32 row
@@ -174,7 +188,9 @@ export function createCompareSpecsContainer(firstGPU, secondGPU) {
         "FP32(float)",
         firstGPU.calculateFP32(firstGPU.getBoostClock()),
         secondGPU.calculateFP32(secondGPU.getBoostClock()),
-        getFP32PercentageDifference(firstGPU, secondGPU)
+        getFP32PercentageDifference(firstGPU, secondGPU),
+        firstGpuModelHeaderClass,
+        secondGpuModelHeaderClass
     );
 
     // Texture Rate row
@@ -184,7 +200,10 @@ export function createCompareSpecsContainer(firstGPU, secondGPU) {
         secondGPU.calculateTextureRate(secondGPU.getBoostClock()) + " GTexel/s",
         getPercentageDifference(
             firstGPU.calculateTextureRate(firstGPU.getBoostClock()), 
-            secondGPU.calculateTextureRate(secondGPU.getBoostClock()))
+            secondGPU.calculateTextureRate(secondGPU.getBoostClock())
+        ),
+        firstGpuModelHeaderClass,
+        secondGpuModelHeaderClass
     );
 
     // Pixel Rate row
@@ -194,7 +213,10 @@ export function createCompareSpecsContainer(firstGPU, secondGPU) {
         secondGPU.calculatePixelRate(secondGPU.getBoostClock()) + " GPixel/s",
         getPercentageDifference(
             firstGPU.calculatePixelRate(firstGPU.getBoostClock()), 
-            secondGPU.calculatePixelRate(secondGPU.getBoostClock()))
+            secondGPU.calculatePixelRate(secondGPU.getBoostClock())
+        ),
+        firstGpuModelHeaderClass,
+        secondGpuModelHeaderClass
     );
 
     // Bandwidth row
@@ -204,7 +226,10 @@ export function createCompareSpecsContainer(firstGPU, secondGPU) {
         secondGPU.calculateBandwidth(secondGPU.getMemClock()) + " GB/s",
         getPercentageDifference(
             firstGPU.calculateBandwidth(firstGPU.getMemClock()), 
-            secondGPU.calculateBandwidth(secondGPU.getMemClock()))
+            secondGPU.calculateBandwidth(secondGPU.getMemClock())
+        ),
+        firstGpuModelHeaderClass,
+        secondGpuModelHeaderClass
     );
     
     gpuContainer.appendChild(compareSpecsTable);
@@ -228,7 +253,9 @@ function createTableRow(
     headerContent,
     firstGPUContent,
     secondGPUContent,
-    differenceContent
+    differenceContent,
+    firstGpuModelHeaderClass,
+    secondGpuModelHeaderClass
 ) {
     const row = document.createElement("tr");
     const header = document.createElement("th");
@@ -236,9 +263,11 @@ function createTableRow(
     const firstGPUData = document.createElement("td");
     firstGPUData.textContent = firstGPUContent;
     firstGPUData.className = "compare-specs-table-gpu-column";
+    firstGPUData.classList.add(firstGpuModelHeaderClass);
     const secondGPUData = document.createElement("td");
     secondGPUData.textContent = secondGPUContent;
     secondGPUData.className = "compare-specs-table-gpu-column";
+    secondGPUData.classList.add(secondGpuModelHeaderClass)
     const differenceData = document.createElement("td");
     differenceData.className = "compare-specs-table-difference-column";
     differenceData.textContent = differenceContent;
