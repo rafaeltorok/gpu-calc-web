@@ -46,7 +46,7 @@ function createGraphicsCardTable(gpu) {
         <tr><th>Cores:</td><td>${gpu.getCores()}</td></tr>
         <tr><th>TMUs:</td><td>${gpu.getTmus()}</td></tr>
         <tr><th>ROPs:</td><td>${gpu.getRops()}</td></tr>
-        <tr><th>VRAM:</td><td>${gpu.getVram()} GB ${gpu.getMemType()}</td></tr>
+        <tr><th>VRAM:</td><td>${gpu.formatVramAmount()} ${gpu.getMemType()}</td></tr>
         <tr><th>Bus Width:</td><td>${gpu.getBus()} bit</td></tr>
     `;
 

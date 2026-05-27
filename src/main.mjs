@@ -40,13 +40,13 @@ async function showAddGPU() {
         cores: parseInt(prompt('Enter Cores')),
         tmus: parseInt(prompt('Enter TMUs')),
         rops: parseInt(prompt('Enter ROPs')),
-        vram: parseInt(prompt('Enter VRAM (GB)')),
-        bus: parseInt(prompt('Enter Bus Width (bit)')),
+        vram: parseFloat(prompt('Enter VRAM (in GB)').replace(',', '.')),
+        bus: parseInt(prompt('Enter Bus Width (in bit)')),
         memtype: prompt('Enter Memory Type').toUpperCase(),
-        baseclock: parseInt(prompt('Enter Base Clock (MHz)')),
-        boostclock: parseInt(prompt('Enter Boost Clock (MHz)')),
-        memclock: parseFloat(prompt('Enter Memory Clock (GHz)'))
-    }
+        baseclock: parseInt(prompt('Enter Base Clock (in MHz)')),
+        boostclock: parseInt(prompt('Enter Boost Clock (in MHz)')),
+        memclock: parseFloat(prompt('Enter Memory Clock (in Gbps)').replace(',', '.'))
+    };
 
     const gpuList = getGPUList();
     gpuList.push(new GPU(
