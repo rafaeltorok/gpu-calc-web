@@ -4,7 +4,7 @@ import { GPU } from "./gpu.mjs";
 // The array that serves as a database while the app is running
 let gpuList = [];
 
-// Runs when the app starts, fetches all GPU objects from the gpuData JSON file
+// Fetch all GPU objects from the database file during the app start
 export async function getData() {
     const response = await fetch('/gpus');
     const data = await response.json();
@@ -27,24 +27,22 @@ export async function getData() {
 }
 
 
-// Fetches a GPU object from the gpuList Array
+// Fetch a GPU object from the gpuList Array
 export function getGPUFromDatabase(searchInput) {
-    const gpu = gpuList.find(gpu => gpu.getModel().toLowerCase().trim() === searchInput.toLowerCase().trim());
+    const gpu = gpuList.find(
+        gpu => gpu.getModel().toLowerCase().replace(/\s+/g, '') === searchInput.toLowerCase().replace(/\s+/g, '')
+    );
     return gpu;
 }
 
 
-// Fetches all GPUs from the database
+// Fetch all cards from the database
 export function getGPUList() {
     return gpuList;
 }
 
 
-// Adds a new GPU object to the array
-
-
-
-// Prepares a JSON format string to be written into the database file
+// Format all data into JSON to store in the database file
 export function formatGpuListIntoJsonString() {
     const dataList = [];
     for (const gpu of gpuList) {
