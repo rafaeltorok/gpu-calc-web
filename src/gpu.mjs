@@ -81,11 +81,13 @@ export class GPU {
             this.getModel().toLowerCase().includes("rx 7") ||
             this.getModel().toLowerCase().includes("rx 9")
         ) {
-            fp32Performance = ((this.getCores() * coreClock * 4) / 1000000).toFixed(2);
+            fp32Performance = ((this.getCores() * coreClock * 4) / 1000000);
         } else {
-            fp32Performance = ((this.getCores() * coreClock * 2) / 1000000).toFixed(2);
+            fp32Performance = ((this.getCores() * coreClock * 2) / 1000000);
         }
-        return (fp32Performance < 1) ? (fp32Performance * 1000) + " GFLOPS" : fp32Performance + " TFLOPS";
+        return (fp32Performance < 1) ? 
+            (fp32Performance * 1000).toFixed(2) + " GFLOPS" : 
+            fp32Performance.toFixed(2) + " TFLOPS";
     }
 
     calculateTextureRate(coreClock) {
@@ -98,5 +100,12 @@ export class GPU {
 
     calculateBandwidth(memClock) {
         return ((this.getBus() * memClock) / 8).toFixed(2);
+    }
+
+    formatVramAmount() {
+        if (this.getVram() < 1) {
+            return `${this.getVram() * 1000}MB`;
+        }
+        return `${this.getVram()}GB`;
     }
 }
