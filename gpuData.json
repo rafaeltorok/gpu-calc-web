@@ -1094,7 +1094,7 @@
   {
     "manufacturer": "AMD",
     "line": "Radeon",
-    "model": "RX 9060 XT 8GB",
+    "model": "RX 9060 XT",
     "cores": 2048,
     "tmus": 128,
     "rops": 64,
