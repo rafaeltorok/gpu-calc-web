@@ -6,6 +6,14 @@ Calculate the Theoretical Performance of your favorite graphics cards, compare t
 
 - Built using Node.js, HTML, CSS and JavaScript.
 
+- [Live demo⇗](https://gpucalcweb.onrender.com) available on Render.
+
+### Screenshots
+
+<img src="./img/main-page.png" alt="Web UI for displaying a GPU data" width="600"/>
+
+<img src="./img/comparison-table.png" alt="Specifications comparison between graphics cards" width="450"/>
+
 
 ## Requirements
 
