@@ -1,13 +1,22 @@
 # GPUCalcWeb
 
-### The Web version of the GPUCalc app, built using NodeJS, HTML, CSS and JavaScript.
+## About
 
-GPUCalcWeb can calculate the Theoretical Performance of your graphics card and compare the specifications of your cards.
-Add as many cards as you want to be stored in the app's GPU list.
+Calculate the Theoretical Performance of your favorite graphics cards, compare their specifications and performance, and add all of your favorite ones to app's GPU list.
+
+- Built using Node.js, HTML, CSS and JavaScript.
+
 
 ## Requirements
-* Requires Node.js to be installed locally
 
-## How to run
-* To run the app, simply navigate to the app's main folder and run the command: `nodejs server.js`
-* Access it with your browser via the address: `http://localhost:3000`
+- Node.js v18 or later
+
+
+## Usage
+
+Install dependencies and run the app
+```bash
+npm install && npm run start
+```
+
+Access the Web UI on `http://localhost:3000`

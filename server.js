@@ -6,7 +6,7 @@ const path = require('path');
 const filename = './gpuData.json';
 
 // Serve static files from the "public" directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '/')));
 // Middleware to parse JSON body
 app.use(express.json());
 

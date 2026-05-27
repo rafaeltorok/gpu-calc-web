@@ -1,17 +1,35 @@
+@font-face {
+  font-family: 'naked-power-bold';
+  src: url('/public/fonts/naked-power.bold.otf') format('truetype');
+}
+
 body {
     background-color: #121212;
     color: white;
-    font-family: serif, sans-serif;
+    font-family: "naked-power-bold", serif, sans-serif;
     text-align: center;
+    background-image: url(/public/assets/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    background-attachment: fixed;
+    height: 100vh;
 }
 
-h1 {
+.main-page-title {
     font-size: 48px;
+    border: 1px solid gray;
+    padding: 1rem;
+    background-color: rgba(10, 10, 10, 0.5);
+    width: 500px;
+    margin: 2rem auto;
+    border-radius: 1rem;
 }
 
 button {
     font-size: 16px;
-    background-color: #222222;
+    font-family: inherit;
+    background-color: rgba(22, 22, 22, 0.5);
     color: white;
     border-radius: 5px;
     padding: 5px;
@@ -27,6 +45,9 @@ button:hover {
 
 input {
     padding: 0.5rem;
+    background-color: black;
+    color: white;
+    font-family: inherit;
 }
 
 .gpu-container {
@@ -36,7 +57,8 @@ input {
     padding: 10px;
     border: 1px solid grey;
     border-radius: 15px;
-    background-color: #1e1e1e;
+    background-color: rgba(11, 11, 11, 0.5);
+    
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Center the content inside */
@@ -50,17 +72,17 @@ input {
     margin-top: 5px;
     width: 100%;
     display: block;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.5);
     border-radius: 0.5rem;
     padding: 0.75rem;
 }
 
 .gpu-container th {
-    background-color: #121212;
+    background-color: rgba(20, 20, 20, 0.65);
 }
 
 .gpu-container td {
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.75);
     font-weight: bold;
 }
 
@@ -115,6 +137,7 @@ th {
 .gpu-compare-amd,
 .gpu-compare-intel,
 .gpu-compare-nvidia {
+    background-color: rgba(5, 5, 5, 0.5);
     background-color: #050505;
     font-size: 26px;
     font-weight: bold;
@@ -139,7 +162,7 @@ th {
     padding: 10px;
     border: 1px solid grey;
     border-radius: 15px;
-    background-color: #1e1e1e;
+    background-color: rgba(1e, 1e, 1e, 0.5);
     display: flex;
     flex-wrap: wrap;
     justify-content: center; /* Center the content inside */
@@ -148,12 +171,12 @@ th {
 }
 
 .compare-specs-table-headers {
-    background-color: #050505;
+    background-color: rgba(05, 05, 05, 0.5);
 }
   
 .compare-specs-table-gpu-column {
     width: 30%;
-    background-color: #303030;
+    background-color: rgba(30, 30, 30, 0.75);
 }
 
 /* Adjust the width of the 'Difference' column */

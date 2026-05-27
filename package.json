@@ -1,24 +1,23 @@
 {
   "name": "gpucalcweb",
   "version": "1.0.0",
-  "description": "A Web version of the GPUCalc app, built using NodeJS",
+  "description": "The Web version of the GPUCalc app",
   "main": "script.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/rafaeltorok/GPUCalcWeb.git"
+    "url": "git+https://github.com/rafaeltorok/gpu-calc-web.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/rafaeltorok/GPUCalcWeb/issues"
+    "url": "https://github.com/rafaeltorok/gpu-calc-web/issues"
   },
-  "homepage": "https://github.com/rafaeltorok/GPUCalcWeb#readme",
+  "homepage": "https://github.com/rafaeltorok/gpu-calc-web#readme",
   "dependencies": {
     "express": "^4.21.1",
     "nodemon": "^3.1.10"
