@@ -14,7 +14,8 @@ body {
     background-size: cover;
     background-attachment: fixed;
     height: 100vh;
-    min-width: 350px;
+    width: 100%;
+    min-width: 450px;
 }
 
 #content {
@@ -72,7 +73,7 @@ input {
 
 .gpu-container {
     max-width: 1100px;
-    min-width: 600px;
+    min-width: 450px;
     margin: 2rem 1.5rem;
     border: 1px solid grey;
     border-radius: 15px;
@@ -200,7 +201,7 @@ th {
 }
 
 
-@media only screen and (hover: none) and (pointer: coarse) and (orientation: portrait){
+@media only screen and (max-width: 768px){
     #content, 
     .menu, 
     #data-display,
@@ -218,6 +219,10 @@ th {
         padding: 0;
     }
 
+    .main-page-title {
+        max-width: 90%;
+    }
+
     .menu {
         overflow: auto;
     }
@@ -225,6 +230,18 @@ th {
     .gpu-container {
         min-width: 200px;
         max-width: 500px;
+        margin: 1rem auto;
+        margin-bottom: 2rem;
+    }
+
+    .compare-specs-table {
+        width: 100%;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    button {
+        height: 75px;
     }
 
     .table-wrapper {
@@ -240,19 +257,9 @@ th {
     }
 
     .compare-specs-container {
-        max-width: 600px;
+        max-width: 500px;
         overflow-x: auto;
-        padding-left: 2rem;
-        padding-right: 0;
-    }
-
-    .compare-specs-table {
-        width: 100%;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-    }
-
-    button {
-        height: 75px;
+        margin: 0 auto;
+        padding: 0;
     }
 }
